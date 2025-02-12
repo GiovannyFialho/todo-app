@@ -37,6 +37,11 @@ export const styles = StyleSheet.create({
     color: "#fff",
     padding: 16,
     fontSize: 16,
+    borderWidth: 1,
+    borderColor: "transparent",
+  },
+  inputFocused: {
+    borderColor: colors.purple,
   },
   button: {
     width: 56,
@@ -94,7 +99,7 @@ export const styles = StyleSheet.create({
   },
   noneTaskText: {
     fontSize: 14,
-    color: colors["gray-400"],
+    color: colors["gray-300"],
   },
   noneTaskTextBold: {
     fontWeight: "700",

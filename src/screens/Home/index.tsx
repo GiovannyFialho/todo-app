@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Image,
   Keyboard,
@@ -12,6 +13,8 @@ import { colors } from "../../theme/colors";
 import { styles } from "./styles";
 
 export function Home() {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.container}>
@@ -25,9 +28,11 @@ export function Home() {
         <View style={styles.content}>
           <View style={styles.form}>
             <TextInput
-              style={styles.input}
+              style={[styles.input, isFocused && styles.inputFocused]}
               placeholder="Adicione uma nova tarefa"
               placeholderTextColor={colors["gray-300"]}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
             />
 
             <TouchableOpacity style={styles.button}>
