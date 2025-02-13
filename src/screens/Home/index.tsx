@@ -10,6 +10,9 @@ import {
 } from "react-native";
 
 import { colors } from "../../theme/colors";
+
+import { Task } from "../../components/task";
+
 import { styles } from "./styles";
 
 export function Home() {
@@ -79,6 +82,8 @@ export function Home() {
               Crie tarefas e organize seus itens a fazer
             </Text>
           </View>
+
+          <Task text="Integer urna interdum massa libero auctor neque turpis turpis semper." />
         </View>
       </View>
     </TouchableWithoutFeedback>
