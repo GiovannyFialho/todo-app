@@ -33,6 +33,7 @@ export function Home() {
         checked: false,
       },
     ]);
+
     setTaskName("");
   }
 
