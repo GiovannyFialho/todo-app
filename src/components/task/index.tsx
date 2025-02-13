@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
@@ -7,22 +6,20 @@ import { colors } from "../../theme/colors";
 
 import { styles } from "./styles";
 
-interface TaskProps {
-  status?: boolean;
+export interface TaskProps {
+  id: string;
   text: string;
+  checked: boolean;
+  onCheck?: () => void;
+  onRemove?: () => void;
 }
 
-export function Task({ status = false, text }: TaskProps) {
-  const [checked, setChecked] = useState(status);
-
-  const handleToggleCheck = () => setChecked(!checked);
-  const handleDelete = () => alert("Tarefa excluída!");
-
+export function Task({ onCheck, text, checked, onRemove }: TaskProps) {
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={[styles.checkbox, checked && styles.checkboxChecked]}
-        onPress={handleToggleCheck}
+        onPress={onCheck}
       >
         {checked && <MaterialIcons name="check" size={15} color="#fff" />}
       </TouchableOpacity>
@@ -31,7 +28,7 @@ export function Task({ status = false, text }: TaskProps) {
         {text}
       </Text>
 
-      <TouchableOpacity onPress={handleDelete} style={styles.trash}>
+      <TouchableOpacity onPress={onRemove} style={styles.trash}>
         <Ionicons name="trash-sharp" size={24} color={colors["gray-300"]} />
       </TouchableOpacity>
     </View>

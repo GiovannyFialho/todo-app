@@ -104,4 +104,7 @@ export const styles = StyleSheet.create({
   noneTaskTextBold: {
     fontWeight: "700",
   },
+  tasksContainer: {
+    marginTop: 20,
+  },
 });
